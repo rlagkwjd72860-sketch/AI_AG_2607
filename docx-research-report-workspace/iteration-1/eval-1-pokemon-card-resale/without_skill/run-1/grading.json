@@ -1,0 +1,18 @@
+{
+  "run_id": "eval-1-without_skill",
+  "summary": {"passed": 5, "failed": 7, "total": 12, "pass_rate": 0.4167},
+  "expectations": [
+    {"text": "output_is_valid_docx", "passed": true, "evidence": "71 paragraphs, 1 table, opens cleanly via python-docx"},
+    {"text": "has_title_page_metadata", "passed": false, "evidence": "only 작성일 present; author is folded into a combined line ('작성: 춘식이') and there is no 문서 구분 field at all"},
+    {"text": "has_toc", "passed": false, "evidence": "no 목차 section found anywhere in the document"},
+    {"text": "has_numbered_sections", "passed": true, "evidence": "7 numbered top-level sections present"},
+    {"text": "has_subsections", "passed": true, "evidence": "8 numbered subsections present (e.g. 2.1-2.3, 4.1)"},
+    {"text": "has_references_section", "passed": false, "evidence": "no consolidated 참고 자료 section; sources are scattered as inline '출처: ...' text after each subsection instead"},
+    {"text": "references_are_hyperlinks", "passed": false, "evidence": "0 hyperlink relationships in the document; all source mentions are plain text"},
+    {"text": "title_font_size_30pt", "passed": false, "evidence": "font sizes range 8.5-26pt; largest (title) is 26pt, not 30pt"},
+    {"text": "body_font_size_15pt", "passed": false, "evidence": "body text sizes are 10.5-13pt (Word default-ish sizes), no 15pt used"},
+    {"text": "font_is_malgun_gothic", "passed": true, "evidence": "agent independently chose 맑은 고딕 for all runs with eastAsia tags set on 69 runs, even without the skill"},
+    {"text": "main_color_applied", "passed": false, "evidence": "two different colors used (595959, 1F2A44) inconsistently rather than one deliberate main color"},
+    {"text": "content_is_researched_not_fabricated", "passed": true, "evidence": "19 real sources, rigorous inline citations, explicitly flagged cross-source discrepancies in market-size estimates"}
+  ]
+}

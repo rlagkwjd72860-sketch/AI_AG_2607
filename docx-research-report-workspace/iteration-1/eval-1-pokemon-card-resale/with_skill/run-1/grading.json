@@ -1,0 +1,18 @@
+{
+  "run_id": "eval-1-with_skill",
+  "summary": {"passed": 12, "failed": 0, "total": 12, "pass_rate": 1.0},
+  "expectations": [
+    {"text": "output_is_valid_docx", "passed": true, "evidence": "97 paragraphs, 1 table, opens cleanly via python-docx"},
+    {"text": "has_title_page_metadata", "passed": true, "evidence": "작성일/작성자/문서 구분 all present as labeled lines on the cover"},
+    {"text": "has_toc", "passed": true, "evidence": "목차 heading present, lists all 7 sections + 9 subsections + 참고 자료(출처)"},
+    {"text": "has_numbered_sections", "passed": true, "evidence": "7 numbered top-level sections (1.~7.) present"},
+    {"text": "has_subsections", "passed": true, "evidence": "9 numbered subsections (4.1-4.4, 5.1-5.3, 6.1-6.2)"},
+    {"text": "has_references_section", "passed": true, "evidence": "dedicated 참고 자료(출처) section with 15 entries"},
+    {"text": "references_are_hyperlinks", "passed": true, "evidence": "15 real hyperlink relationships to reputable outlets (Mordor Intelligence, SI.com, Yahoo Sports, ABC7, Sports Collectors Digest, Fanatics Collect, Wikipedia, etc.)"},
+    {"text": "title_font_size_30pt", "passed": true, "evidence": "30.0pt present among font sizes used"},
+    {"text": "body_font_size_15pt", "passed": true, "evidence": "15.0pt present among font sizes used"},
+    {"text": "font_is_malgun_gothic", "passed": true, "evidence": "only font used is 맑은 고딕; eastAsia tag set on 77 runs"},
+    {"text": "main_color_applied", "passed": true, "evidence": "single consistent color 2E74B5 used throughout title/headings"},
+    {"text": "content_is_researched_not_fabricated", "passed": true, "evidence": "13 WebSearch + 9 WebFetch calls; agent explicitly discarded low-credibility numbers from content-farm sources"}
+  ]
+}

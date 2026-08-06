@@ -1,0 +1,224 @@
+{
+  "metadata": {
+    "skill_name": "docx-research-report",
+    "skill_path": "skills/docx-research-report",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-08-06T02:56:52Z",
+    "evals_run": [
+      1
+    ],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 12,
+        "failed": 0,
+        "total": 12,
+        "time_seconds": 329.6,
+        "tokens": 77702,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "output_is_valid_docx",
+          "passed": true,
+          "evidence": "97 paragraphs, 1 table, opens cleanly via python-docx"
+        },
+        {
+          "text": "has_title_page_metadata",
+          "passed": true,
+          "evidence": "\uc791\uc131\uc77c/\uc791\uc131\uc790/\ubb38\uc11c \uad6c\ubd84 all present as labeled lines on the cover"
+        },
+        {
+          "text": "has_toc",
+          "passed": true,
+          "evidence": "\ubaa9\ucc28 heading present, lists all 7 sections + 9 subsections + \ucc38\uace0 \uc790\ub8cc(\ucd9c\ucc98)"
+        },
+        {
+          "text": "has_numbered_sections",
+          "passed": true,
+          "evidence": "7 numbered top-level sections (1.~7.) present"
+        },
+        {
+          "text": "has_subsections",
+          "passed": true,
+          "evidence": "9 numbered subsections (4.1-4.4, 5.1-5.3, 6.1-6.2)"
+        },
+        {
+          "text": "has_references_section",
+          "passed": true,
+          "evidence": "dedicated \ucc38\uace0 \uc790\ub8cc(\ucd9c\ucc98) section with 15 entries"
+        },
+        {
+          "text": "references_are_hyperlinks",
+          "passed": true,
+          "evidence": "15 real hyperlink relationships to reputable outlets (Mordor Intelligence, SI.com, Yahoo Sports, ABC7, Sports Collectors Digest, Fanatics Collect, Wikipedia, etc.)"
+        },
+        {
+          "text": "title_font_size_30pt",
+          "passed": true,
+          "evidence": "30.0pt present among font sizes used"
+        },
+        {
+          "text": "body_font_size_15pt",
+          "passed": true,
+          "evidence": "15.0pt present among font sizes used"
+        },
+        {
+          "text": "font_is_malgun_gothic",
+          "passed": true,
+          "evidence": "only font used is \ub9d1\uc740 \uace0\ub515; eastAsia tag set on 77 runs"
+        },
+        {
+          "text": "main_color_applied",
+          "passed": true,
+          "evidence": "single consistent color 2E74B5 used throughout title/headings"
+        },
+        {
+          "text": "content_is_researched_not_fabricated",
+          "passed": true,
+          "evidence": "13 WebSearch + 9 WebFetch calls; agent explicitly discarded low-credibility numbers from content-farm sources"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.4167,
+        "passed": 5,
+        "failed": 7,
+        "total": 12,
+        "time_seconds": 156.6,
+        "tokens": 49346,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "output_is_valid_docx",
+          "passed": true,
+          "evidence": "71 paragraphs, 1 table, opens cleanly via python-docx"
+        },
+        {
+          "text": "has_title_page_metadata",
+          "passed": false,
+          "evidence": "only \uc791\uc131\uc77c present; author is folded into a combined line ('\uc791\uc131: \ucd98\uc2dd\uc774') and there is no \ubb38\uc11c \uad6c\ubd84 field at all"
+        },
+        {
+          "text": "has_toc",
+          "passed": false,
+          "evidence": "no \ubaa9\ucc28 section found anywhere in the document"
+        },
+        {
+          "text": "has_numbered_sections",
+          "passed": true,
+          "evidence": "7 numbered top-level sections present"
+        },
+        {
+          "text": "has_subsections",
+          "passed": true,
+          "evidence": "8 numbered subsections present (e.g. 2.1-2.3, 4.1)"
+        },
+        {
+          "text": "has_references_section",
+          "passed": false,
+          "evidence": "no consolidated \ucc38\uace0 \uc790\ub8cc section; sources are scattered as inline '\ucd9c\ucc98: ...' text after each subsection instead"
+        },
+        {
+          "text": "references_are_hyperlinks",
+          "passed": false,
+          "evidence": "0 hyperlink relationships in the document; all source mentions are plain text"
+        },
+        {
+          "text": "title_font_size_30pt",
+          "passed": false,
+          "evidence": "font sizes range 8.5-26pt; largest (title) is 26pt, not 30pt"
+        },
+        {
+          "text": "body_font_size_15pt",
+          "passed": false,
+          "evidence": "body text sizes are 10.5-13pt (Word default-ish sizes), no 15pt used"
+        },
+        {
+          "text": "font_is_malgun_gothic",
+          "passed": true,
+          "evidence": "agent independently chose \ub9d1\uc740 \uace0\ub515 for all runs with eastAsia tags set on 69 runs, even without the skill"
+        },
+        {
+          "text": "main_color_applied",
+          "passed": false,
+          "evidence": "two different colors used (595959, 1F2A44) inconsistently rather than one deliberate main color"
+        },
+        {
+          "text": "content_is_researched_not_fabricated",
+          "passed": true,
+          "evidence": "19 real sources, rigorous inline citations, explicitly flagged cross-source discrepancies in market-size estimates"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 329.6,
+        "stddev": 0.0,
+        "min": 329.6,
+        "max": 329.6
+      },
+      "tokens": {
+        "mean": 77702.0,
+        "stddev": 0.0,
+        "min": 77702,
+        "max": 77702
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.4167,
+        "stddev": 0.0,
+        "min": 0.4167,
+        "max": 0.4167
+      },
+      "time_seconds": {
+        "mean": 156.6,
+        "stddev": 0.0,
+        "min": 156.6,
+        "max": 156.6
+      },
+      "tokens": {
+        "mean": 49346.0,
+        "stddev": 0.0,
+        "min": 49346,
+        "max": 49346
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.58",
+      "time_seconds": "+173.0",
+      "tokens": "+28356"
+    }
+  },
+  "notes": [
+    "Non-discriminating assertions: font_is_malgun_gothic and content_is_researched_not_fabricated passed for BOTH configurations — Claude already defaults to 맑은 고딕 for Korean docx and already does careful sourced research without the skill. The skill's real value-add is structural/formatting: TOC, dedicated hyperlinked references section, consistent title/body point sizes, and one consistent main color — all 7 of these failed in the baseline.",
+    "Single run per configuration (n=1) — no stddev signal; a true delta estimate would need 2-3 runs per config given research tasks have some run-to-run variance in topic coverage and source selection.",
+    "with_skill took ~2.1x longer (330s vs 157s) and used ~1.6x more tokens (77.7k vs 49.3k) than the baseline, mostly from more WebSearch/WebFetch calls (13+9) and building the intermediate content.json. This is an expected time/quality tradeoff worth flagging to the user, not a bug.",
+    "The with-skill agent hit a JSON syntax error in its first content.json draft and had to self-correct by running `python -m json.tool` before invoking build_report.py. The skill doesn't currently instruct this validation step — worth adding to reduce wasted iterations in future runs."
+  ]
+}

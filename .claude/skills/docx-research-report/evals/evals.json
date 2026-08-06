@@ -1,0 +1,25 @@
+{
+  "skill_name": "docx-research-report",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "포켓몬 카드 리셀 시장 조사해서 보고서로 만들어줘",
+      "expected_output": "표지(제목/부제/작성일/작성자/문서구분)-목차-본문(개요/방법론/현황/트렌드(하위섹션 포함)/쟁점/사례/결론)-참고자료(실제 검색한 URL) 구조의 docx 보고서. 제목 40px(30pt)/본문 20px(15pt)/맑은 고딕 서식, 실제 웹 검색 기반 수치와 출처가 포함되어야 함.",
+      "files": [],
+      "assertions": [
+        "output_is_valid_docx",
+        "has_title_page_metadata",
+        "has_toc",
+        "has_numbered_sections",
+        "has_subsections",
+        "has_references_section",
+        "references_are_hyperlinks",
+        "title_font_size_30pt",
+        "body_font_size_15pt",
+        "font_is_malgun_gothic",
+        "main_color_applied",
+        "content_is_researched_not_fabricated"
+      ]
+    }
+  ]
+}

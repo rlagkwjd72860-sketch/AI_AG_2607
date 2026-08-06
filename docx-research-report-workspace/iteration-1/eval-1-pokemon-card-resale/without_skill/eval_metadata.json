@@ -1,0 +1,19 @@
+{
+  "eval_id": 1,
+  "eval_name": "pokemon-card-resale-market",
+  "prompt": "포켓몬 카드 리셀 시장 조사해서 보고서로 만들어줘",
+  "assertions": [
+    "output_is_valid_docx: A .docx file was produced and opens without error via python-docx",
+    "has_title_page_metadata: Document contains 작성일/작성자/문서구분 (or clear English equivalents) metadata lines near the top",
+    "has_toc: Document contains a 목차 (table of contents) section listing the main section titles",
+    "has_numbered_sections: Document contains at least 5 numbered top-level sections (e.g. '1. ...' through '7./8. ...')",
+    "has_subsections: At least one section has numbered subsections (e.g. '4.1', '4.2')",
+    "has_references_section: Document contains a 참고 자료(출처) or equivalent references section with at least 3 entries",
+    "references_are_hyperlinks: At least some reference URLs are real, working-looking hyperlinks (not just plain text guesses)",
+    "title_font_size_30pt: The main title run uses 30pt font size (40px per the skill's px->pt convention)",
+    "body_font_size_15pt: Body paragraph runs use 15pt font size (20px per the skill's convention)",
+    "font_is_malgun_gothic: Text runs specify 맑은 고딕 (Malgun Gothic) as the font, including the eastAsia font tag",
+    "main_color_applied: Title/section headings use a non-default (non-black) main color consistently",
+    "content_is_researched_not_fabricated: Facts/statistics in the body are plausible and traceable to real sources cited in references, not generic placeholder claims"
+  ]
+}
